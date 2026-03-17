@@ -1,0 +1,1039 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Jmeter - Love Always Had A Way</title>
+<meta name="description" content="Apache JMeter 性能测试 完整学习大纲">
+
+
+  <meta name="author" content="Xiedh2580">
+  
+  <meta property="article:author" content="Xiedh2580">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Love Always Had A Way">
+<meta property="og:title" content="Jmeter">
+<meta property="og:url" content="http://localhost:4000/jmeter/Jmeter/">
+
+
+  <meta property="og:description" content="Apache JMeter 性能测试 完整学习大纲">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-03-17T00:00:00+08:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/jmeter/Jmeter/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Love Always Had A Way Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Love Always Had A Way
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Xiedh2580</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>from nothing came something</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">China</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Jmeter">
+    <meta itemprop="description" content="Apache JMeter 性能测试 完整学习大纲">
+    <meta itemprop="datePublished" content="2026-03-17T00:00:00+08:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/jmeter/Jmeter/" itemprop="url">Jmeter
+</a>
+          </h1>
+          
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="apache-jmeter-性能测试-完整学习大纲">Apache JMeter 性能测试 完整学习大纲</h1>
+
+<h2 id="一-jmeter-概述与性能测试基础">一、 JMeter 概述与性能测试基础</h2>
+<ul>
+  <li><strong>1.1 JMeter是什么？</strong>
+    <ul>
+      <li>定义：Apache JMeter™是一个纯Java桌面应用程序，用于功能行为和性能测试。</li>
+      <li>主要用途：负载测试、压力测试、功能测试、回归测试、数据库测试、Web服务测试。</li>
+      <li>特性：开源、跨平台、支持多协议、可扩展。</li>
+    </ul>
+  </li>
+  <li><strong>1.2 性能测试基本概念</strong>
+    <ul>
+      <li><strong>并发用户</strong> vs <strong>吞吐量</strong> vs <strong>响应时间</strong>。</li>
+      <li><strong>负载测试</strong>：验证系统在预期负载下的行为。</li>
+      <li><strong>压力测试</strong>：找到系统在极限负载下的瓶颈和崩溃点。</li>
+      <li><strong>疲劳测试</strong>：长时间、高稳定性的负载测试。</li>
+      <li><strong>容量规划测试</strong>：确定系统在满足性能指标下的最大容量。</li>
+      <li><strong>关键性能指标（KPI）</strong>：
+        <ul>
+          <li>响应时间（平均、P90/P95/P99）。</li>
+          <li>吞吐量（Requests/Second, Transactions/Second）。</li>
+          <li>错误率。</li>
+          <li>资源利用率（CPU、内存、磁盘I/O、网络）。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>1.3 JMeter 架构与核心组件</strong>
+    <ul>
+      <li>工作原理：基于线程组的模拟并发。</li>
+      <li><strong>测试计划</strong>：JMeter脚本的根节点。</li>
+      <li><strong>线程组</strong>：模拟并发用户的基础单元。</li>
+      <li><strong>取样器</strong>：发送请求的核心组件（HTTP, JDBC, FTP等）。</li>
+      <li><strong>逻辑控制器</strong>：控制取样器的执行顺序和逻辑。</li>
+      <li><strong>监听器</strong>：收集、查看和分析测试结果。</li>
+      <li><strong>配置元件</strong>：为取样器提供配置信息（参数、头、Cookie等）。</li>
+      <li><strong>前置/后置处理器</strong>：在请求发送前/后处理数据。</li>
+      <li><strong>断言</strong>：验证响应结果。</li>
+      <li><strong>定时器</strong>：控制请求的发送节奏。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="二-环境搭建与第一个测试计划">二、 环境搭建与第一个测试计划</h2>
+<ul>
+  <li><strong>2.1 系统要求与安装</strong>
+    <ul>
+      <li><strong>Java环境</strong>：安装JRE或JDK（推荐JDK 8或11+），并配置<code class="language-plaintext highlighter-rouge">JAVA_HOME</code>。</li>
+      <li><strong>下载JMeter</strong>：从Apache官网下载二进制包。</li>
+      <li><strong>目录结构</strong>：
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">/bin</code>: 可执行文件、启动脚本、配置文件（<code class="language-plaintext highlighter-rouge">jmeter.properties</code>）。</li>
+          <li><code class="language-plaintext highlighter-rouge">/lib</code>: 核心库和扩展jar包。</li>
+          <li><code class="language-plaintext highlighter-rouge">/extras</code>: 额外工具和样例。</li>
+          <li><code class="language-plaintext highlighter-rouge">/docs</code>: 文档。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>2.2 启动与界面概览</strong>
+    <ul>
+      <li><strong>GUI模式</strong>：<code class="language-plaintext highlighter-rouge">jmeter.bat</code>（Windows）或 <code class="language-plaintext highlighter-rouge">jmeter</code>（Linux/macOS）。</li>
+      <li><strong>命令行模式</strong>：<code class="language-plaintext highlighter-rouge">jmeter -n -t [testplan.jmx] -l [results.jtl] -e -o [ReportFolder]</code>。</li>
+      <li>主界面布局：菜单栏、工具栏、测试计划树、工作区。</li>
+    </ul>
+  </li>
+  <li><strong>2.3 创建第一个HTTP负载测试</strong>
+    <ul>
+      <li>
+        <ol>
+          <li>添加<strong>线程组</strong>。</li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>在线程组下添加<strong>HTTP请求取样器</strong>。</li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>配置服务器、端口、路径、方法。</li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>添加<strong>查看结果树</strong>监听器（用于调试）。</li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>添加<strong>聚合报告</strong>监听器（用于查看结果摘要）。</li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>运行测试并查看结果。</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="三-核心组件深度解析">三、 核心组件深度解析</h2>
+<ul>
+  <li><strong>3.1 线程组</strong>
+    <ul>
+      <li><strong>线程数</strong>：模拟的并发用户数。</li>
+      <li><strong>Ramp-Up时间</strong>：在多长时间内启动所有线程（秒）。</li>
+      <li><strong>循环次数</strong>：每个线程执行测试计划的次数（永远/固定次数）。</li>
+      <li><strong>调度器</strong>：设置测试的启动/结束时间和持续时间。</li>
+    </ul>
+  </li>
+  <li><strong>3.2 取样器</strong>
+    <ul>
+      <li><strong>HTTP请求</strong>：最常用。配置协议、服务器、端口、路径、方法、参数、消息体。</li>
+      <li><strong>JDBC请求</strong>：用于数据库性能测试。需配合JDBC连接配置。</li>
+      <li><strong>FTP请求</strong>、<strong>SMTP请求</strong>、<strong>SOAP/XML-RPC请求</strong>、<strong>JMS请求</strong>等。</li>
+    </ul>
+  </li>
+  <li><strong>3.3 逻辑控制器</strong>
+    <ul>
+      <li><strong>简单控制器</strong>：简单的容器，不控制逻辑。</li>
+      <li><strong>循环控制器</strong>：控制子元素的执行次数。</li>
+      <li><strong>仅一次控制器</strong>：每个线程在循环中只执行一次。</li>
+      <li><strong>交替控制器</strong>、<strong>随机控制器</strong>、<strong>随机顺序控制器</strong>。</li>
+      <li><strong>如果（If）控制器</strong>：根据条件决定是否执行。</li>
+      <li><strong>ForEach控制器</strong>：遍历变量。</li>
+      <li><strong>事务控制器</strong>：将多个取样器组合为一个事务，统计整体响应时间。</li>
+      <li><strong>模块控制器</strong>、<strong>包含控制器</strong>、<strong>Switch控制器</strong>。</li>
+    </ul>
+  </li>
+  <li><strong>3.4 配置元件</strong>
+    <ul>
+      <li><strong>HTTP请求默认值</strong>：为同作用域下的HTTP请求设置公共属性。</li>
+      <li><strong>HTTP信息头管理器</strong>：添加请求头（如<code class="language-plaintext highlighter-rouge">Content-Type</code>, <code class="language-plaintext highlighter-rouge">Authorization</code>）。</li>
+      <li><strong>HTTP Cookie管理器</strong>：自动管理Cookie，模拟会话。</li>
+      <li><strong>CSV 数据集配置</strong>：从外部文件（CSV）读取测试数据，实现参数化。</li>
+      <li><strong>用户定义的变量</strong>：定义静态变量。</li>
+      <li><strong>计数器</strong>：生成递增数字。</li>
+      <li><strong>随机变量</strong>：生成随机数。</li>
+      <li><strong>JDBC连接配置</strong>：配置数据库连接池。</li>
+    </ul>
+  </li>
+  <li><strong>3.5 定时器</strong>
+    <ul>
+      <li><strong>固定定时器</strong>：在每个请求后暂停固定时间。</li>
+      <li><strong>高斯随机定时器</strong>、<strong>均匀随机定时器</strong>。</li>
+      <li><strong>同步定时器</strong>：阻塞线程，直到达到指定数量的线程后同时释放，制造瞬间高并发。</li>
+      <li><strong>常数吞吐量定时器</strong>：控制测试达到指定的吞吐量（每分钟/秒的请求数）。</li>
+    </ul>
+  </li>
+  <li><strong>3.6 前置处理器与后置处理器</strong>
+    <ul>
+      <li><strong>前置处理器</strong>：在取样器执行前运行。
+        <ul>
+          <li><strong>用户参数</strong>：为每个用户设置不同的参数。</li>
+          <li><strong>正则表达式提取器</strong>：从响应中提取数据，并存储为变量。</li>
+          <li><strong>JSR223 前置处理器</strong>：用脚本语言（Groovy）动态生成数据。</li>
+        </ul>
+      </li>
+      <li><strong>后置处理器</strong>：在取样器执行后运行。
+        <ul>
+          <li><strong>正则表达式提取器</strong>（最常用）。</li>
+          <li><strong>JSON提取器</strong>、<strong>XPath提取器</strong>。</li>
+          <li><strong>边界提取器</strong>。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>3.7 断言</strong>
+    <ul>
+      <li>作用：验证服务器的响应是否符合预期。</li>
+      <li><strong>响应断言</strong>：检查响应文本、响应代码、响应头、响应时间。</li>
+      <li><strong>JSON断言</strong>、<strong>XPath断言</strong>、<strong>BeanShell断言</strong>。</li>
+      <li><strong>大小断言</strong>：检查响应数据的大小。</li>
+      <li><strong>持续时间断言</strong>：检查响应时间是否超过阈值。</li>
+    </ul>
+  </li>
+  <li><strong>3.8 监听器</strong>
+    <ul>
+      <li><strong>监听器的代价</strong>：在GUI模式下，监听器会消耗大量内存，在高负载测试时应使用简单数据写入器。</li>
+      <li><strong>查看结果树</strong>：显示每个请求和响应的详细信息（调试用，压测时禁用）。</li>
+      <li><strong>聚合报告</strong>：生成关键统计数据的汇总表（平均值、中位数、吞吐量、错误率等）。</li>
+      <li><strong>汇总报告</strong>、<strong>用表格查看结果</strong>。</li>
+      <li><strong>响应时间图</strong>、<strong>活跃线程数图</strong>。</li>
+      <li><strong>后端监听器</strong>：将结果直接发送到InfluxDB，配合Grafana展示。</li>
+      <li><strong>简单数据写入器</strong>：将原始结果写入<code class="language-plaintext highlighter-rouge">.jtl</code>文件（推荐用于非GUI压测）。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="四-脚本开发与高级技巧">四、 脚本开发与高级技巧</h2>
+<ul>
+  <li><strong>4.1 参数化与动态数据</strong>
+    <ul>
+      <li><strong>用户自定义变量</strong>：全局静态参数。</li>
+      <li><strong>CSV 数据集配置</strong>：从外部文件循环/随机读取数据。</li>
+      <li><strong>函数助手</strong>：生成随机字符串、日期、计数器等。</li>
+      <li><strong>后置处理器提取</strong>：从上一个请求的响应中提取动态值（如Token、Session ID），供后续请求使用。</li>
+    </ul>
+  </li>
+  <li><strong>4.2 关联</strong>
+    <ul>
+      <li><strong>定义</strong>：从服务器响应中获取动态数据，并将其作为参数传递给后续请求。</li>
+      <li><strong>实现</strong>：使用<strong>正则表达式提取器</strong>（通用）或<strong>JSON提取器</strong>提取值，保存到JMeter变量中，在后续请求中用<code class="language-plaintext highlighter-rouge">${variable}</code>引用。</li>
+    </ul>
+  </li>
+  <li><strong>4.3 关联、参数化、断言综合案例</strong>
+    <ul>
+      <li>模拟一个完整的业务流程：用户登录（获取Token）-&gt; 查询信息 -&gt; 提交数据。</li>
+    </ul>
+  </li>
+  <li><strong>4.4 JMeter函数与变量</strong>
+    <ul>
+      <li><strong>函数语法</strong>：<code class="language-plaintext highlighter-rouge">__functionName(argument1, argument2, ...)</code></li>
+      <li><strong>常用函数</strong>：
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">__time()</code>: 获取当前时间戳。</li>
+          <li><code class="language-plaintext highlighter-rouge">__Random()</code>: 生成随机数。</li>
+          <li><code class="language-plaintext highlighter-rouge">__counter()</code>: 计数器。</li>
+          <li><code class="language-plaintext highlighter-rouge">__threadNum()</code>: 获取线程号。</li>
+          <li><code class="language-plaintext highlighter-rouge">__V()</code>, <code class="language-plaintext highlighter-rouge">__evalVar()</code>: 评估变量。</li>
+          <li><code class="language-plaintext highlighter-rouge">__FileToString()</code>: 读取文件内容。</li>
+          <li><code class="language-plaintext highlighter-rouge">__P()</code>: 获取命令行定义的属性。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>4.5 脚本录制与调试</strong>
+    <ul>
+      <li><strong>使用HTTP(S) 测试脚本录制器</strong>：
+        <ul>
+          <li>配置JMeter作为代理。</li>
+          <li>配置浏览器或应用使用JMeter代理。</li>
+          <li>录制用户操作。</li>
+        </ul>
+      </li>
+      <li><strong>使用BadBoy或BlazeMeter扩展</strong>（录制浏览器操作）。</li>
+      <li><strong>调试方法</strong>：
+        <ul>
+          <li>使用“查看结果树”检查请求/响应。</li>
+          <li>使用“调试取样器”和“调试后置处理器”查看变量。</li>
+          <li>控制日志级别。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="五-负载场景设计执行与监控">五、 负载场景设计、执行与监控</h2>
+<ul>
+  <li><strong>5.1 设计负载模型</strong>
+    <ul>
+      <li><strong>阶梯式负载</strong>：逐步增加并发用户。</li>
+      <li><strong>波浪式负载</strong>：模拟波浪形的访问模式。</li>
+      <li><strong>峰值负载</strong>：短时间内制造极高并发。</li>
+      <li><strong>耐久性测试</strong>：长时间稳定负载。</li>
+    </ul>
+  </li>
+  <li><strong>5.2 在非GUI模式下执行测试</strong>
+    <ul>
+      <li><strong>为什么？</strong> GUI模式消耗大量资源，不适合真正的压测。</li>
+      <li><strong>命令行语法</strong>：
+<code class="language-plaintext highlighter-rouge">jmeter -n -t testplan.jmx -l result.jtl -e -o /path/to/report/folder</code></li>
+      <li><code class="language-plaintext highlighter-rouge">-n</code>: 非GUI模式。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">-t</code>: 测试计划文件。</li>
+  <li><code class="language-plaintext highlighter-rouge">-l</code>: 结果文件（jtl或csv）。</li>
+  <li><code class="language-plaintext highlighter-rouge">-e</code>: 测试完成后生成HTML报告。</li>
+  <li><code class="language-plaintext highlighter-rouge">-o</code>: 输出HTML报告的目录（必须为空或不存在）。</li>
+  <li><strong>5.3 分布式测试（主从模式）</strong></li>
+  <li><strong>场景</strong>：单机无法生成足够压力时。</li>
+  <li><strong>架构</strong>：一个控制机（Master） + 多个压力生成机（Slave）。</li>
+  <li><strong>步骤</strong>：
+    <ol>
+      <li>在所有机器上安装相同版本的JMeter和Java。</li>
+      <li>在Slave机上启动<code class="language-plaintext highlighter-rouge">jmeter-server</code>（Unix）或<code class="language-plaintext highlighter-rouge">jmeter-server.bat</code>（Windows）。</li>
+      <li>在Master机的<code class="language-plaintext highlighter-rouge">jmeter.properties</code>中配置Slave机的IP和端口。</li>
+      <li>在Master机的GUI或命令行中远程启动所有Slave。</li>
+    </ol>
+  </li>
+  <li><strong>5.4 服务器资源监控</strong></li>
+  <li><strong>JMeter插件</strong>：通过PerfMon插件监控服务器CPU、内存、磁盘、网络。</li>
+  <li><strong>代理方式</strong>：在目标服务器上启动<code class="language-plaintext highlighter-rouge">ServerAgent</code>，在JMeter中添加<code class="language-plaintext highlighter-rouge">PerfMon</code>监听器连接。</li>
+  <li><strong>操作系统工具</strong>：结合<code class="language-plaintext highlighter-rouge">top</code>, <code class="language-plaintext highlighter-rouge">vmstat</code>, <code class="language-plaintext highlighter-rouge">iostat</code>, <code class="language-plaintext highlighter-rouge">netstat</code>等命令。</li>
+</ul>
+
+<h2 id="六-结果分析与报告">六、 结果分析与报告</h2>
+<ul>
+  <li><strong>6.1 结果分析基础</strong></li>
+  <li><strong>理解聚合报告/汇总报告字段</strong>：</li>
+  <li><strong>样本</strong>：总请求数。</li>
+  <li><strong>平均值</strong>、<strong>中位数</strong>、<strong>90%百分位</strong>、<strong>95%百分位</strong>、<strong>99%百分位</strong>：响应时间统计。</li>
+  <li><strong>最小值</strong>、<strong>最大值</strong>。</li>
+  <li><strong>异常%</strong>：错误率。</li>
+  <li><strong>吞吐量</strong>：每秒/每分钟处理的请求数/事务数。</li>
+  <li><strong>接收/发送KB/sec</strong>：网络吞吐量。</li>
+  <li><strong>6.2 生成HTML仪表板报告</strong></li>
+  <li>命令行生成：<code class="language-plaintext highlighter-rouge">-e -o</code> 参数。</li>
+  <li>从现有结果文件生成：<code class="language-plaintext highlighter-rouge">jmeter -g result.jtl -o /path/to/report</code></li>
+  <li><strong>报告内容</strong>：</li>
+  <li>概览：测试开始/结束时间，请求统计，错误统计，吞吐量，响应时间分布。</li>
+  <li>请求详情：每个取样器的详细统计。</li>
+  <li>错误详情。</li>
+  <li>响应时间百分位图、活动线程图、吞吐量随时间变化图等。</li>
+  <li><strong>6.3 性能基线与趋势分析</strong></li>
+  <li>建立性能基线：在系统稳定、性能良好时运行测试，记录关键指标作为基准。</li>
+  <li>持续集成：将JMeter测试集成到CI/CD流程，监控每次构建的性能变化。</li>
+</ul>
+
+<h2 id="七-高级主题与最佳实践">七、 高级主题与最佳实践</h2>
+<ul>
+  <li><strong>7.1 JMeter插件管理</strong></li>
+  <li><strong>JMeter Plugins Manager</strong>：插件管理利器。</li>
+  <li>常用插件：</li>
+  <li><strong>Custom Thread Groups</strong>: <code class="language-plaintext highlighter-rouge">Stepping Thread Group</code>, <code class="language-plaintext highlighter-rouge">Ultimate Thread Group</code> 等，提供更灵活的负载模型。</li>
+  <li><strong>3 Basic Graphs</strong>: 活动线程、响应时间、吞吐量实时图。</li>
+  <li><strong>PerfMon</strong>: 服务器监控。</li>
+  <li><strong>JSON/YAML Path Extractor</strong>: 提取JSON/YAML数据。</li>
+  <li><strong>7.2 测试WebService、数据库、JMS等协议</strong></li>
+  <li><strong>SOAP Web Service</strong>：使用HTTP请求取样器，消息体为XML，添加SOAP/XML-RPC请求取样器。</li>
+  <li><strong>RESTful API</strong>：使用HTTP请求取样器，消息体为JSON，配合JSON提取器和断言。</li>
+  <li><strong>JDBC测试</strong>：添加JDBC连接配置和JDBC请求取样器，编写SQL。</li>
+  <li><strong>JMS测试</strong>：添加JMS点对点或发布/订阅相关的取样器。</li>
+  <li><strong>7.3 处理动态参数与加密</strong></li>
+  <li><strong>JSR223 取样器/处理器</strong>：使用Groovy、BeanShell等脚本语言生成动态值或进行加密。</li>
+  <li>示例：使用Groovy计算MD5签名，生成时间戳。</li>
+  <li><strong>7.4 性能测试最佳实践</strong></li>
+  <li><strong>脚本设计</strong>：</li>
+  <li>使用事务控制器组织业务。</li>
+  <li>参数化所有硬编码数据。</li>
+  <li>处理关联，避免脚本依赖。</li>
+  <li>添加合理的断言，但不要过多。</li>
+  <li><strong>测试执行</strong>：</li>
+  <li>总是在非GUI模式下运行压测。</li>
+  <li>使用足够的预热时间（Ramp-Up）。</li>
+  <li>在独立、干净的测试环境中执行。</li>
+  <li>监控所有相关系统（应用服务器、数据库、网络）。</li>
+  <li><strong>结果分析</strong>：</li>
+  <li>关注趋势和分布，而不是单个值。</li>
+  <li>结合业务指标（如TPS、错误率）和系统资源指标。</li>
+  <li>记录所有配置和测试数据。</li>
+</ul>
+
+<h2 id="八-持续集成与自动化">八、 持续集成与自动化</h2>
+<ul>
+  <li><strong>8.1 与Jenkins集成</strong></li>
+  <li>安装Jenkins和JMeter插件。</li>
+  <li>配置构建步骤执行JMeter命令行。</li>
+  <li>发布HTML报告。</li>
+  <li><strong>8.2 与Maven集成</strong></li>
+  <li>使用<code class="language-plaintext highlighter-rouge">jmeter-maven-plugin</code>插件。</li>
+  <li>配置<code class="language-plaintext highlighter-rouge">pom.xml</code>，在<code class="language-plaintext highlighter-rouge">mvn verify</code>阶段自动执行JMeter测试。</li>
+  <li><strong>8.3 性能测试左移</strong></li>
+  <li>在开发早期进行API性能测试。</li>
+  <li>将性能测试作为CI/CD流水线的一部分，设置性能质量门禁。</li>
+</ul>
+
+<h2 id="九-常见问题与性能调优">九、 常见问题与性能调优</h2>
+<ul>
+  <li><strong>9.1 JMeter自身优化</strong></li>
+  <li>调整JVM参数（堆内存、GC策略）。</li>
+  <li>使用命令行模式。</li>
+  <li>减少监听器的使用，使用简单数据写入器。</li>
+  <li>合理使用定时器控制吞吐量。</li>
+  <li><strong>9.2 常见性能瓶颈识别</strong></li>
+  <li><strong>应用服务器</strong>：CPU、内存、线程池、连接池。</li>
+  <li><strong>数据库</strong>：慢SQL、锁、索引缺失、连接池。</li>
+  <li><strong>网络</strong>：带宽、延迟、DNS解析。</li>
+  <li><strong>中间件</strong>：消息队列、缓存。</li>
+  <li><strong>9.3 测试环境与生产环境差异处理</strong></li>
+  <li>尽量保持环境配置（硬件、软件、数据量）一致。</li>
+  <li>使用比例模型进行推算。</li>
+</ul>
+
+<h2 id="十-学习资源与进阶方向">十、 学习资源与进阶方向</h2>
+<ul>
+  <li><strong>10.1 官方资源</strong></li>
+  <li><a href="https://jmeter.apache.org/">Apache JMeter 官网</a></li>
+  <li><a href="https://jmeter.apache.org/usermanual/index.html">用户手册</a></li>
+  <li><a href="https://jmeter.apache.org/usermanual/best-practices.html">最佳实践</a></li>
+  <li><strong>10.2 社区与工具</strong></li>
+  <li><a href="https://jmeter-plugins.org/">JMeter Plugins Manager</a></li>
+  <li><a href="https://www.blazemeter.com/">BlazeMeter</a>（企业级SaaS负载测试平台）。</li>
+  <li><a href="https://loadfocus.com/jmeter-thread-group-calculator">Ultimate Thread Group Calculator</a></li>
+  <li><strong>10.3 进阶学习</strong></li>
+  <li>学习BeanShell或Groovy脚本，实现复杂逻辑。</li>
+  <li>开发自定义JMeter插件。</li>
+  <li>结合InfluxDB + Grafana构建实时监控看板。</li>
+  <li><strong>10.4 实践项目</strong></li>
+  <li>为一个简单的Web应用（如电商登录-浏览-下单）设计并执行完整的性能测试。</li>
+  <li>对一组RESTful API进行阶梯式压力测试，找出其最大TPS和瓶颈。</li>
+  <li>设计一个长时间（如1小时）的稳定性测试，监控内存泄漏。</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jmeter" class="page__taxonomy-item p-category" rel="tag">Jmeter</a>
+    
+    </span>
+  </p>
+
+
+  
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jmeter" class="page__taxonomy-item p-category" rel="tag">Jmeter</a>
+    
+    </span>
+  </p>
+
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-03-17T00:00:00+08:00">March 17, 2026</time></p>
+
+
+      </footer>
+
+      
+<section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=Jmeter%20http%3A%2F%2Flocalhost%3A4000%2Fjmeter%2FJmeter%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjmeter%2FJmeter%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/jmeter/Jmeter/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Jmeter%20http%3A%2F%2Flocalhost%3A4000%2Fjmeter%2FJmeter%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/postman/Postman%E7%9B%B8%E5%85%B3/" class="pagination--pager" title="Postman相关">Previous</a>
+    
+    
+      <a href="/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/" class="pagination--pager" title="SQL相关">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/selenium/Selenium%E7%9B%B8%E5%85%B3/" rel="permalink">Selenium相关
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Selenium Web自动化测试与爬虫 系统学习大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/" rel="permalink">SQL相关
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">SQL 系统学习与知识体系大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/postman/Postman%E7%9B%B8%E5%85%B3/" rel="permalink">Postman相关
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Postman API开发与测试 完整学习大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/jekyll/post-exclude-search/" rel="permalink">Exclude Post from Search Index
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">This post should not appear in the search index because it has the following YAML Front Matter:
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="http://localhost:4000">Love Always Had A Way</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

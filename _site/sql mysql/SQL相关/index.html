@@ -1,0 +1,921 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>SQL相关 - Love Always Had A Way</title>
+<meta name="description" content="SQL 系统学习与知识体系大纲">
+
+
+  <meta name="author" content="Xiedh2580">
+  
+  <meta property="article:author" content="Xiedh2580">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Love Always Had A Way">
+<meta property="og:title" content="SQL相关">
+<meta property="og:url" content="http://localhost:4000/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/">
+
+
+  <meta property="og:description" content="SQL 系统学习与知识体系大纲">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-03-17T00:00:00+08:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Love Always Had A Way Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Love Always Had A Way
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Xiedh2580</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>from nothing came something</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">China</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="SQL相关">
+    <meta itemprop="description" content="SQL 系统学习与知识体系大纲">
+    <meta itemprop="datePublished" content="2026-03-17T00:00:00+08:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/" itemprop="url">SQL相关
+</a>
+          </h1>
+          
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="sql-系统学习与知识体系大纲">SQL 系统学习与知识体系大纲</h1>
+
+<h2 id="一-引言与概述">一、 引言与概述</h2>
+<ul>
+  <li><strong>1.1 SQL是什么？</strong>
+    <ul>
+      <li>定义：结构化查询语言</li>
+      <li>用途：用于管理关系数据库系统（RDBMS）</li>
+      <li>标准：ANSI SQL 与各厂商扩展（T-SQL, PL/SQL等）</li>
+    </ul>
+  </li>
+  <li><strong>1.2 数据库基本概念</strong>
+    <ul>
+      <li>数据库 (Database)</li>
+      <li>表 (Table)</li>
+      <li>行/记录 (Row/Record)</li>
+      <li>列/字段 (Column/Field)</li>
+      <li>主键 (Primary Key) 与外键 (Foreign Key)</li>
+      <li>索引 (Index)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="二-环境搭建与初步实践">二、 环境搭建与初步实践</h2>
+<ul>
+  <li><strong>2.1 常见数据库管理系统 (DBMS) 简介</strong>
+    <ul>
+      <li>MySQL / MariaDB</li>
+      <li>PostgreSQL</li>
+      <li>SQLite</li>
+      <li>Microsoft SQL Server</li>
+      <li>Oracle Database</li>
+    </ul>
+  </li>
+  <li><strong>2.2 选择与安装一个DBMS (以MySQL/PostgreSQL为例)</strong></li>
+  <li><strong>2.3 使用图形化工具 (GUI)</strong>
+    <ul>
+      <li>DBeaver, DataGrip, Navicat, pgAdmin, MySQL Workbench</li>
+    </ul>
+  </li>
+  <li><strong>2.4 命令行客户端基础操作</strong></li>
+</ul>
+
+<h2 id="三-sql-核心语法-按功能分类">三、 SQL 核心语法 (按功能分类)</h2>
+<ul>
+  <li><strong>3.1 数据定义语言 (DDL - Data Definition Language)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CREATE</code>: 创建数据库、表、索引、视图</li>
+      <li><code class="language-plaintext highlighter-rouge">ALTER</code>: 修改表结构（添加、删除、修改列）</li>
+      <li><code class="language-plaintext highlighter-rouge">DROP</code>: 删除数据库、表、视图</li>
+      <li><code class="language-plaintext highlighter-rouge">TRUNCATE</code>: 快速清空表数据</li>
+    </ul>
+  </li>
+  <li><strong>3.2 数据操作语言 (DML - Data Manipulation Language)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">SELECT</code>: 查询数据 (<strong>最核心</strong>)</li>
+      <li><code class="language-plaintext highlighter-rouge">INSERT</code>: 插入新数据</li>
+      <li><code class="language-plaintext highlighter-rouge">UPDATE</code>: 更新现有数据</li>
+      <li><code class="language-plaintext highlighter-rouge">DELETE</code>: 删除数据</li>
+    </ul>
+  </li>
+  <li><strong>3.3 数据控制语言 (DCL - Data Control Language)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">GRANT</code>: 授予用户权限</li>
+      <li><code class="language-plaintext highlighter-rouge">REVOKE</code>: 撤销用户权限</li>
+    </ul>
+  </li>
+  <li><strong>3.4 事务控制语言 (TCL - Transaction Control Language)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">COMMIT</code>: 提交事务</li>
+      <li><code class="language-plaintext highlighter-rouge">ROLLBACK</code>: 回滚事务</li>
+      <li><code class="language-plaintext highlighter-rouge">SAVEPOINT</code>: 设置事务保存点</li>
+      <li><code class="language-plaintext highlighter-rouge">BEGIN TRANSACTION</code>: 开始事务 (部分数据库)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="四-select-查询深度解析">四、 SELECT 查询深度解析</h2>
+<ul>
+  <li><strong>4.1 基础查询结构</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">SELECT ... FROM ...</code></li>
+      <li>使用 <code class="language-plaintext highlighter-rouge">AS</code> 设置别名</li>
+      <li>去重：<code class="language-plaintext highlighter-rouge">DISTINCT</code> 关键字</li>
+    </ul>
+  </li>
+  <li><strong>4.2 过滤数据 (WHERE 子句)</strong>
+    <ul>
+      <li>比较运算符 (<code class="language-plaintext highlighter-rouge">=</code>, <code class="language-plaintext highlighter-rouge">!=</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>)</li>
+      <li>逻辑运算符 (<code class="language-plaintext highlighter-rouge">AND</code>, <code class="language-plaintext highlighter-rouge">OR</code>, <code class="language-plaintext highlighter-rouge">NOT</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">BETWEEN ... AND ...</code></li>
+      <li><code class="language-plaintext highlighter-rouge">IN (...)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">LIKE</code> 与通配符 (<code class="language-plaintext highlighter-rouge">%</code>, <code class="language-plaintext highlighter-rouge">_</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">IS NULL</code> / <code class="language-plaintext highlighter-rouge">IS NOT NULL</code></li>
+    </ul>
+  </li>
+  <li><strong>4.3 排序与限制 (ORDER BY &amp; LIMIT)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ORDER BY</code> 单列、多列排序 (<code class="language-plaintext highlighter-rouge">ASC</code>, <code class="language-plaintext highlighter-rouge">DESC</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">LIMIT</code> 与 <code class="language-plaintext highlighter-rouge">OFFSET</code> (分页查询)</li>
+      <li>注意：不同数据库的分页语法差异（如 SQL Server 用 <code class="language-plaintext highlighter-rouge">TOP</code> / <code class="language-plaintext highlighter-rouge">FETCH</code>， Oracle用 <code class="language-plaintext highlighter-rouge">ROWNUM</code>）</li>
+    </ul>
+  </li>
+  <li><strong>4.4 聚合函数与分组 (GROUP BY &amp; HAVING)</strong>
+    <ul>
+      <li>聚合函数：<code class="language-plaintext highlighter-rouge">COUNT()</code>, <code class="language-plaintext highlighter-rouge">SUM()</code>, <code class="language-plaintext highlighter-rouge">AVG()</code>, <code class="language-plaintext highlighter-rouge">MAX()</code>, <code class="language-plaintext highlighter-rouge">MIN()</code></li>
+      <li><code class="language-plaintext highlighter-rouge">GROUP BY</code> 子句的使用</li>
+      <li><code class="language-plaintext highlighter-rouge">HAVING</code> 子句 vs <code class="language-plaintext highlighter-rouge">WHERE</code> 子句（过滤分组）</li>
+    </ul>
+  </li>
+  <li><strong>4.5 连接查询 (JOIN) - 重中之重</strong>
+    <ul>
+      <li>关系模型复习：一对一，一对多，多对多</li>
+      <li><code class="language-plaintext highlighter-rouge">INNER JOIN</code>: 内连接</li>
+      <li><code class="language-plaintext highlighter-rouge">LEFT (OUTER) JOIN</code>: 左外连接</li>
+      <li><code class="language-plaintext highlighter-rouge">RIGHT (OUTER) JOIN</code>: 右外连接</li>
+      <li><code class="language-plaintext highlighter-rouge">FULL (OUTER) JOIN</code>: 全外连接</li>
+      <li><code class="language-plaintext highlighter-rouge">CROSS JOIN</code>: 笛卡尔积</li>
+      <li>自连接 (Self Join)</li>
+      <li>多表连接</li>
+    </ul>
+  </li>
+  <li><strong>4.6 子查询 (Subquery)</strong>
+    <ul>
+      <li>标量子查询 (返回单一值)</li>
+      <li>行子查询 (返回单行)</li>
+      <li>列子查询 (返回单列)</li>
+      <li>表子查询 (返回结果集)</li>
+      <li>相关子查询 vs 非相关子查询</li>
+      <li>在 <code class="language-plaintext highlighter-rouge">SELECT</code>, <code class="language-plaintext highlighter-rouge">FROM</code>, <code class="language-plaintext highlighter-rouge">WHERE</code>, <code class="language-plaintext highlighter-rouge">HAVING</code> 中使用子查询</li>
+    </ul>
+  </li>
+  <li><strong>4.7 集合运算 (Set Operations)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">UNION</code> / <code class="language-plaintext highlighter-rouge">UNION ALL</code>: 并集</li>
+      <li><code class="language-plaintext highlighter-rouge">INTERSECT</code>: 交集</li>
+      <li><code class="language-plaintext highlighter-rouge">EXCEPT</code> / <code class="language-plaintext highlighter-rouge">MINUS</code>: 差集</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="五-函数">五、 函数</h2>
+<ul>
+  <li><strong>5.1 标量函数 (处理单值，返回单值)</strong>
+    <ul>
+      <li>字符串函数：<code class="language-plaintext highlighter-rouge">CONCAT()</code>, <code class="language-plaintext highlighter-rouge">SUBSTRING()</code>, <code class="language-plaintext highlighter-rouge">UPPER()</code>, <code class="language-plaintext highlighter-rouge">LOWER()</code>, <code class="language-plaintext highlighter-rouge">LENGTH()</code>/<code class="language-plaintext highlighter-rouge">LEN()</code>, <code class="language-plaintext highlighter-rouge">TRIM()</code></li>
+      <li>数值函数：<code class="language-plaintext highlighter-rouge">ROUND()</code>, <code class="language-plaintext highlighter-rouge">CEIL()</code>/<code class="language-plaintext highlighter-rouge">CEILING()</code>, <code class="language-plaintext highlighter-rouge">FLOOR()</code>, <code class="language-plaintext highlighter-rouge">ABS()</code>, <code class="language-plaintext highlighter-rouge">MOD()</code></li>
+      <li>日期时间函数：<code class="language-plaintext highlighter-rouge">NOW()</code>/<code class="language-plaintext highlighter-rouge">GETDATE()</code>, <code class="language-plaintext highlighter-rouge">CURDATE()</code>, <code class="language-plaintext highlighter-rouge">DATE_ADD()</code>/<code class="language-plaintext highlighter-rouge">DATEADD()</code>, <code class="language-plaintext highlighter-rouge">DATEDIFF()</code>, <code class="language-plaintext highlighter-rouge">EXTRACT()</code>/<code class="language-plaintext highlighter-rouge">DATEPART()</code></li>
+      <li>转换函数：<code class="language-plaintext highlighter-rouge">CAST()</code>, <code class="language-plaintext highlighter-rouge">CONVERT()</code>, <code class="language-plaintext highlighter-rouge">FORMAT()</code></li>
+    </ul>
+  </li>
+  <li><strong>5.2 窗口函数 (Window Functions) - 高级主题</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">OVER()</code> 子句：<code class="language-plaintext highlighter-rouge">PARTITION BY</code> 和 <code class="language-plaintext highlighter-rouge">ORDER BY</code></li>
+      <li>排名函数：<code class="language-plaintext highlighter-rouge">ROW_NUMBER()</code>, <code class="language-plaintext highlighter-rouge">RANK()</code>, <code class="language-plaintext highlighter-rouge">DENSE_RANK()</code>, <code class="language-plaintext highlighter-rouge">NTILE()</code></li>
+      <li>聚合函数作为窗口函数：<code class="language-plaintext highlighter-rouge">SUM() OVER(...)</code></li>
+      <li>取值函数：<code class="language-plaintext highlighter-rouge">LAG()</code>, <code class="language-plaintext highlighter-rouge">LEAD()</code>, <code class="language-plaintext highlighter-rouge">FIRST_VALUE()</code>, <code class="language-plaintext highlighter-rouge">LAST_VALUE()</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="六-数据完整性约束与高级表设计">六、 数据完整性、约束与高级表设计</h2>
+<ul>
+  <li><strong>6.1 约束 (Constraints)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">PRIMARY KEY</code>: 主键约束</li>
+      <li><code class="language-plaintext highlighter-rouge">FOREIGN KEY</code>: 外键约束与参照完整性</li>
+      <li><code class="language-plaintext highlighter-rouge">UNIQUE</code>: 唯一约束</li>
+      <li><code class="language-plaintext highlighter-rouge">NOT NULL</code>: 非空约束</li>
+      <li><code class="language-plaintext highlighter-rouge">CHECK</code>: 检查约束</li>
+      <li><code class="language-plaintext highlighter-rouge">DEFAULT</code>: 默认值约束</li>
+    </ul>
+  </li>
+  <li><strong>6.2 规范化 (Normalization) - 数据库设计理论</strong>
+    <ul>
+      <li>第一范式 (1NF)</li>
+      <li>第二范式 (2NF)</li>
+      <li>第三范式 (3NF)</li>
+      <li>（简介）巴斯-科德范式 (BCNF)</li>
+    </ul>
+  </li>
+  <li><strong>6.3 索引优化</strong>
+    <ul>
+      <li>索引的作用与原理（B树，哈希）</li>
+      <li>创建索引：<code class="language-plaintext highlighter-rouge">CREATE INDEX</code></li>
+      <li>索引类型：唯一索引、复合索引、全文索引</li>
+      <li>索引的优点与代价（何时使用，何时避免）</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="七-视图存储过程触发器">七、 视图、存储过程、触发器</h2>
+<ul>
+  <li><strong>7.1 视图 (VIEW)</strong>
+    <ul>
+      <li>创建视图：<code class="language-plaintext highlighter-rouge">CREATE VIEW</code></li>
+      <li>可更新视图的条件</li>
+      <li>视图的优点（简化查询、安全性）</li>
+    </ul>
+  </li>
+  <li><strong>7.2 存储过程 (Stored Procedure)</strong>
+    <ul>
+      <li>概念：预编译的SQL语句集合</li>
+      <li>创建与调用</li>
+      <li>输入参数与输出参数</li>
+      <li>流程控制语句 (<code class="language-plaintext highlighter-rouge">IF...ELSE</code>, <code class="language-plaintext highlighter-rouge">WHILE</code>, <code class="language-plaintext highlighter-rouge">CASE</code>)</li>
+    </ul>
+  </li>
+  <li><strong>7.3 触发器 (TRIGGER)</strong>
+    <ul>
+      <li>触发时机：<code class="language-plaintext highlighter-rouge">BEFORE</code> / <code class="language-plaintext highlighter-rouge">AFTER</code> (<code class="language-plaintext highlighter-rouge">INSTEAD OF</code>)</li>
+      <li>触发事件：<code class="language-plaintext highlighter-rouge">INSERT</code>, <code class="language-plaintext highlighter-rouge">UPDATE</code>, <code class="language-plaintext highlighter-rouge">DELETE</code></li>
+      <li>访问新旧数据：<code class="language-plaintext highlighter-rouge">OLD</code> 和 <code class="language-plaintext highlighter-rouge">NEW</code> 伪记录</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="八-高级主题与性能">八、 高级主题与性能</h2>
+<ul>
+  <li><strong>8.1 事务与并发控制</strong>
+    <ul>
+      <li>ACID 属性</li>
+      <li>事务隔离级别 (<code class="language-plaintext highlighter-rouge">READ UNCOMMITTED</code>, <code class="language-plaintext highlighter-rouge">READ COMMITTED</code>, <code class="language-plaintext highlighter-rouge">REPEATABLE READ</code>, <code class="language-plaintext highlighter-rouge">SERIALIZABLE</code>)</li>
+      <li>并发问题：脏读、不可重复读、幻读</li>
+    </ul>
+  </li>
+  <li><strong>8.2 查询性能优化</strong>
+    <ul>
+      <li>使用 <code class="language-plaintext highlighter-rouge">EXPLAIN</code> 分析查询执行计划</li>
+      <li>避免使用 <code class="language-plaintext highlighter-rouge">SELECT *</code></li>
+      <li>优化 <code class="language-plaintext highlighter-rouge">JOIN</code> 和子查询</li>
+      <li>合理使用索引</li>
+    </ul>
+  </li>
+  <li><strong>8.3 常用数据库特有功能简介</strong>
+    <ul>
+      <li>MySQL: 存储引擎 (InnoDB, MyISAM)</li>
+      <li>PostgreSQL: 高级数据类型 (数组、JSON、GIS)，CTE</li>
+      <li>SQL Server: CTE, 分页 (<code class="language-plaintext highlighter-rouge">OFFSET-FETCH</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="九-实践与资源">九、 实践与资源</h2>
+<ul>
+  <li><strong>9.1 学习路径建议</strong>
+    <ul>
+      <li>阶段1：掌握 DDL, DML, 基础 SELECT</li>
+      <li>阶段2：深入 JOIN, 子查询, 聚合</li>
+      <li>阶段3：学习索引、设计、事务</li>
+      <li>阶段4：接触窗口函数、性能优化</li>
+    </ul>
+  </li>
+  <li><strong>9.2 在线练习平台</strong>
+    <ul>
+      <li>LeetCode (数据库题库)</li>
+      <li>HackerRank (SQL模块)</li>
+      <li>SQLZoo</li>
+      <li>Codecademy, DataCamp</li>
+    </ul>
+  </li>
+  <li><strong>9.3 推荐书籍与文档</strong>
+    <ul>
+      <li>《SQL必知必会》</li>
+      <li>《高性能MySQL》</li>
+      <li>官方文档是最好的参考</li>
+    </ul>
+  </li>
+  <li><strong>9.4 项目实践想法</strong>
+    <ul>
+      <li>设计一个博客系统的数据库</li>
+      <li>设计一个电商平台的数据库 (用户、商品、订单、购物车)</li>
+      <li>使用公开数据集进行数据分析练习</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#mysql" class="page__taxonomy-item p-category" rel="tag">Mysql</a><span class="sep">, </span>
+    
+      <a href="/tags/#sql" class="page__taxonomy-item p-category" rel="tag">SQL</a>
+    
+    </span>
+  </p>
+
+
+  
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#sql-mysql" class="page__taxonomy-item p-category" rel="tag">SQL Mysql</a>
+    
+    </span>
+  </p>
+
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-03-17T00:00:00+08:00">March 17, 2026</time></p>
+
+
+      </footer>
+
+      
+<section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=SQL%E7%9B%B8%E5%85%B3%20http%3A%2F%2Flocalhost%3A4000%2Fsql%2520mysql%2FSQL%25E7%259B%25B8%25E5%2585%25B3%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2520mysql%2FSQL%25E7%259B%25B8%25E5%2585%25B3%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/sql%20mysql/SQL%E7%9B%B8%E5%85%B3/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=SQL%E7%9B%B8%E5%85%B3%20http%3A%2F%2Flocalhost%3A4000%2Fsql%2520mysql%2FSQL%25E7%259B%25B8%25E5%2585%25B3%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/jmeter/Jmeter/" class="pagination--pager" title="Jmeter">Previous</a>
+    
+    
+      <a href="/selenium/Selenium%E7%9B%B8%E5%85%B3/" class="pagination--pager" title="Selenium相关">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/selenium/Selenium%E7%9B%B8%E5%85%B3/" rel="permalink">Selenium相关
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Selenium Web自动化测试与爬虫 系统学习大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/jmeter/Jmeter/" rel="permalink">Jmeter
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Apache JMeter 性能测试 完整学习大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/postman/Postman%E7%9B%B8%E5%85%B3/" rel="permalink">Postman相关
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Postman API开发与测试 完整学习大纲
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/jekyll/post-exclude-search/" rel="permalink">Exclude Post from Search Index
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">This post should not appear in the search index because it has the following YAML Front Matter:
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="http://localhost:4000">Love Always Had A Way</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
