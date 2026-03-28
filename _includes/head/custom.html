@@ -1,5 +1,87 @@
 <!-- start custom head snippets -->
 
+<!-- 以下style设置了网站背景图 -->
+<style>
+  /* 为整个网站设置背景图 */
+  body {
+    /* 背景图片路径，请根据实际存放位置调整 */
+    background-image: url("{{ '/assets/images/background2.jpg' | relative_url }}");
+
+    /* 控制背景图显示方式 */
+    background-size: cover;        /* 覆盖整个区域，保持图片比例 */
+    /* background-size: contain; */ /* 完整显示图片，可能留白 */
+    /* background-size: 100% 100%; */ /* 拉伸填满，可能变形 */
+
+    background-position: center center; /* 图片居中 */
+    background-repeat: no-repeat;       /* 不重复平铺 */
+    background-attachment: fixed;       /* 背景固定，不随滚动条滚动 */
+
+    /* 可选：为背景图添加半透明遮罩，提高文字可读性 */
+    /* 通过 ::before 伪元素实现 */
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; /* 固定定位，覆盖整个视口 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* 白色半透明遮罩，透明度可调 */
+    /* 如需深色遮罩，可使用：background-color: rgba(0, 0, 0, 0.5); */
+    z-index: -1; /* 置于背景图之上，内容之下 */
+  }
+
+  /* 确保页面主要内容区域在遮罩层之上 */
+  .page {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<!-- 以下style为了让标题栏背景变透明 -->
+<style>
+  /* 让标题栏背景透明 */
+  .masthead {
+    background-color: transparent !important; /* 完全透明 */
+    /* 或者使用半透明效果：background-color: rgba(255, 255, 255, 0.9) !important; */
+  }
+
+  /* 如果导航栏有独立背景色，也需调整 */
+  .greedy-nav,
+  .greedy-nav__list {
+    background-color: transparent !important;
+  }
+
+  /* 调整导航链接颜色以确保在背景图上可读（根据背景图明暗调整） */
+  .masthead a,
+  .greedy-nav a {
+    color: #333; /* 深色文字，适用于浅色背景图 */
+    /* 如果背景图较暗，可使用浅色：color: #fff; */
+  }
+
+  /* 可选：为标题栏添加轻微底部阴影，增强层次感 */
+  .masthead {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+ <!-- 添加网站图标，目前只添加了基础的icon -->
+<!-- 基础 Favicon，兼容旧浏览器 -->
+<link rel="shortcut icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
+<!-- 现代浏览器多尺寸 PNG 图标 -->
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/favicon-32x32.png" | relative_url }}"> -->
+<!-- <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/favicon-16x16.png" | relative_url }}"> -->
+
+<!-- Apple 设备主屏幕图标 -->
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | relative_url }}"> -->
+
+<!-- Windows 磁贴配置 -->
+<!-- <meta name="msapplication-TileColor" content="#ffffff"> -->
+<!-- <meta name="msapplication-TileImage" content="{{ "/assets/images/mstile-150x150.png" | relative_url }}"> -->
+
 
 <!-- end custom head snippets -->
