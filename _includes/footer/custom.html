@@ -1,3 +1,40 @@
 <!-- start custom footer snippets -->
+<!-- _includes/footer/custom.html -->
+<!-- 1. 引入 APlayer JS 库 -->
+<script src="{{ '/assets/js/APlayer.min.js' | relative_url }}"></script>
 
+<!-- 2. 播放器容器 (放在这里) -->
+<div id="aplayer"></div>
+
+<!-- 3. 初始化脚本 (放在容器之后) -->
+<script>
+// 等待页面完全加载后再初始化播放器，确保能找到 #aplayer 容器
+window.addEventListener('DOMContentLoaded', function() {
+    // 检查 APlayer 类是否已加载
+    if (typeof APlayer === 'function') {
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true, // 是否开启固定模式（悬浮）
+            mini: true, // 是否开启迷你模式
+            autoplay: false, // 切勿设置为 true，浏览器通常禁止
+            loop: 'all', // 循环模式
+            order: 'list', // 播放顺序
+            volume: 0.7, // 初始音量
+            mutex: true, // 阻止多个播放器同时播放
+            audio: [ // 您的音乐列表，请修改这里的路径和名称！
+                {
+                    name: 'Cycle（Intro）',
+                    artist: 'KISNOU',
+                    url: '{{ "/assets/music/KISNOU - Cycle (Intro).mp3" | relative_url }}', // 确保路径正确！
+                    cover: '{{ "/assets/music/cover1.jpg" | relative_url }}', // 可选封面
+                },
+                // 可以继续添加更多曲目...
+            ]
+        });
+        console.log('APlayer 初始化成功！'); // 在浏览器控制台查看是否输出
+    } else {
+        console.error('错误：APlayer 库未加载。请检查 JS 文件路径。');
+    }
+});
+</script>
 <!-- end custom footer snippets -->
