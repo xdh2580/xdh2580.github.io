@@ -7,3 +7,21 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* ==========================================================================
+   自定义样式
+   在此处添加您的自定义CSS规则，它们将覆盖主题的默认样式。
+   ========================================================================== */
+
+/* 修复行内代码（被单个反引号 ` 包裹）的超长单行换行问题
+ * 例如：这是一段很长的`veryLongVariableNameOrURLExample`行内代码
+ * 注意：此规则仅作用于**行内**的 <code> 元素，不会影响代码块 <pre>
+ */
+:not(pre) > code {
+  /* 允许长单词在任意字符间断开并换行 */
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* 旧属性，用于兼容性 */
+
+  /* 保留代码中的空格，同时在需要时自动换行 */
+  white-space: pre-wrap;
+}
