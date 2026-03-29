@@ -1,3 +1,105 @@
 <!-- start custom footer snippets -->
+<!-- _includes/footer/custom.html -->
+<!-- 1. 引入 APlayer JS 库 -->
+<script src="{{ '/assets/js/APlayer.min.js' | relative_url }}"></script>
+
+<!-- 2. 播放器容器 (放在这里) -->
+<div id="aplayer"></div>
+
+<!-- 3. 初始化脚本 (放在容器之后) -->
+<script>
+// 将播放器实例存储在全局变量
+window.myPlayer = null;
+// 等待页面完全加载后再初始化播放器，确保能找到 #aplayer 容器
+window.addEventListener('DOMContentLoaded', function() {
+    // 检查 APlayer 类是否已加载
+    if (typeof APlayer === 'function') {
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true, // 是否开启固定模式（悬浮）
+            mini: true, // 是否开启迷你模式
+            autoplay: false, // 切勿设置为 true，浏览器通常禁止
+            loop: 'all', // 循环模式
+            order: 'list', // 播放顺序
+            volume: 0.7, // 初始音量
+            mutex: true, // 阻止多个播放器同时播放
+            audio: [ // 您的音乐列表，请修改这里的路径和名称！
+                {
+                    name: 'Cycle（Intro）',
+                    artist: 'KISNOU',
+                    url: '{{ "/assets/music/KISNOU - Cycle (Intro).mp3" | relative_url }}', // 确保路径正确！
+                    cover: '{{ "/assets/music/cover1.jpg" | relative_url }}', // 可选封面
+                },
+                // 可以继续添加更多曲目...
+            ]
+        });
+        window.myPlayer = ap; // 将播放器实例存储在全局变量
+        console.log('APlayer 初始化成功！'); // 在浏览器控制台查看是否输出
+    } else {
+        console.error('错误：APlayer 库未加载。请检查 JS 文件路径。');
+    }
+});
+</script>
+
+<!-- 引入 swup 库 -->
+<script src="https://unpkg.com/swup@4"></script>
+
+<script>
+// 等待页面完全加载后初始化 swup
+function initSwup() {
+  console.log('准备开始初始化swup');
+  
+  // 使用简单的选择器避免复杂匹配
+  const linkSelector = 'a[href^="/"]:not([data-no-swup])';
+  
+  try {
+    const swup = new Swup({
+      containers: ['#main1'],
+      animationSelector: '[class*="swup-transition-"]',
+      cache: true,
+      linkSelector: linkSelector,
+    });
+    
+    console.log('Swup 初始化成功:', swup);
+    
+    // swup 4 使用 hooks API，而不是 addEventListener
+    if (swup && swup.hooks) {
+      // 监听页面内容替换完成事件（swup 4 的正确事件名称）
+      swup.hooks.on('content:replace', () => {
+        console.log('页面内容已替换，音乐应继续播放。');
+        if (window.myPlayer) {
+          console.log('存在aplyer');
+        }
+      });
+      
+      // 还可以监听其他有用的事件
+      swup.hooks.on('page:view', () => {
+        console.log('页面视图更新');
+        // 这里可以重新初始化新页面中的特定脚本（如代码高亮等）
+      });
+      
+      swup.hooks.on('animation:in:done', () => {
+        console.log('进入动画完成');
+      });
+      
+    } else {
+      console.warn('swup.hooks 不存在，事件监听可能无法正常工作');
+    }
+    
+    // 将 swup 实例存储在全局变量中以便调试
+    window.swupInstance = swup;
+    
+  } catch (error) {
+    console.error('Swup 初始化失败:', error);
+  }
+}
+
+// 确保在页面完全加载后初始化
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSwup);
+} else {
+  initSwup();
+}
+</script>
 
 <!-- end custom footer snippets -->
