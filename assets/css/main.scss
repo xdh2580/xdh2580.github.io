@@ -28,14 +28,14 @@ search: false
 
 
 /* ==========================================================================
-   拓宽各页面中间的部分
+   拓宽各页面中间的部分==>通过如下方式直接调整百分比，移动端显示会有问题（内容超出最右侧区域），暂时舍弃
    ========================================================================== */
 /* 同时调整首页和单篇文章页的中间内容区宽度 */
-.layout--home .page__inner-wrap,
-.layout--single .page__inner-wrap {
-  max-width: 1200px !important; /* 1. 调大此值，例如1200px, 1400px */
-  width: 120% !important;
-}
+// .layout--home .page__inner-wrap,
+// .layout--single .page__inner-wrap {
+//   max-width: 1200px !important; /* 1. 调大此值，例如1200px, 1400px */
+//   width: 100% !important;
+// }
 
 // /* 确保内容区域本身也填充这个新宽度 */->似乎不需要
 // .layout--home .page__content,
