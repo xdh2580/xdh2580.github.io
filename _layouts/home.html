@@ -1,21 +1,67 @@
 ---
 layout: archive
 ---
+
 {%- assign locale = page.locale | default: layout.locale | default: site.locale %}
 
 {{ content }}
 
 <h3 class="archive__subtitle">{{ site.data.ui-text[locale].recent_posts | default: "Recent Posts" }}</h3>
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
+{% comment %} 
+  ================================
+  修改点1：分离有order和无order的文章
+  ================================
+  1. 获取有order字段的文章，并按order升序排列（order越小越靠前）
+  2. 获取无order字段的文章，并按日期降序排列（最新的在前）
+  3. 合并：有order的文章在前，无order的文章在后
+{% endcomment %}
+
+{% comment %} 1. 有order的文章，按order升序 {% endcomment %}
+{% assign posts_with_order = site.posts | where_exp: "post", "post.order" | sort: "order" %}
+
+{% comment %} 2. 无order的文章，按日期降序 {% endcomment %}
+{% assign posts_without_order = site.posts | where_exp: "post", "post.order == nil" | sort: "date" | reverse %}
+
+{% comment %} 3. 合并数组 {% endcomment %}
+{% assign all_posts = "" | split: "" %}
+{% for post in posts_with_order %}
+  {% assign all_posts = all_posts | push: post %}
+{% endfor %}
+{% for post in posts_without_order %}
+  {% assign all_posts = all_posts | push: post %}
+{% endfor %}
+
+{% comment %} 
+  ================================
+  修改点2：计算分页
+  ================================
+  使用上面合并后的all_posts进行分页计算
+{% endcomment %}
+{% assign current_page = paginator.page | default: 1 %}
+{% assign per_page = paginator.per_page | default: 10 %}
+{% assign total_posts = all_posts.size %}
+{% assign total_pages = total_posts | divided_by: per_page | plus: 1 %}
+
+{% comment %} 计算当前页的文章切片 {% endcomment %}
+{% assign start_index = current_page | minus: 1 | times: per_page %}
+{% assign end_index = start_index | plus: per_page %}
+{% if end_index > total_posts %}
+  {% assign end_index = total_posts %}
 {% endif %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html locale=locale entries=posts type=entries_layout %}
-</div>
+{% comment %} 获取当前页的文章 {% endcomment %}
+{% assign posts = all_posts | slice: start_index, per_page %}
 
+{% comment %} 显示文章列表 {% endcomment %}
+{% if posts.size > 0 %}
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  <div class="entries-{{ entries_layout }}">
+    {% include documents-collection.html locale=locale entries=posts type=entries_layout %}
+  </div>
+{% else %}
+  <p>暂无文章。</p>
+{% endif %}
+
+{% comment %} 分页导航 {% endcomment %}
 {% include paginator.html locale=locale %}
