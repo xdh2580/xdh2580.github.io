@@ -67,6 +67,57 @@
   }
 </style>
 
+<!-- 为所有details标签设置样式 -->
+<style>
+/* 核心样式：为所有details标签设置边框 */
+details {
+    /* 边框基本样式 */
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 10px; /* 圆角 */
+    margin: 10px 0; /* 外边距，避免堆叠在一起 */
+    padding: 5px 5px; /* 内边距 */
+    /* 设置展开/折叠时的过渡动画（可选） */
+    transition: all 0.3s ease;
+}
+
+/* 当details元素展开时的样式（可选） */
+details[open] {
+    border-color: rgba(182, 219, 182, 0.5); /* 展开时边框变为绿色 */
+}
+
+/* 为summary标签（摘要/标题）设置样式，使其更突出 */
+summary {
+    font-weight: bold;
+    /* font-size: 1.1em; */
+    color: #000000;
+    cursor: pointer; /* 鼠标悬停时显示手型指针 */
+    padding: 8px 0; /* 给summary一些内边距 */
+    user-select: none; /* 防止文字被意外选中 */
+}
+
+/* 自定义summary前的标记（默认的三角形）*/
+summary::marker {
+    color: #363636; /* 修改默认的黑色三角形的颜色 */
+}
+
+/* 为了更好的浏览器兼容性，也可以使用::-webkit-details-marker */
+summary::-webkit-details-marker {
+    color: #363636;
+}
+
+/* details内部内容的样式 */
+details > *:not(summary) {
+    margin-top: 12px; /* 为内容与summary之间增加间距 */
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 悬停效果（可选）*/
+details:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加轻微阴影 */
+}
+</style>
+
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
  <!-- 添加网站图标，目前只添加了基础的icon -->
