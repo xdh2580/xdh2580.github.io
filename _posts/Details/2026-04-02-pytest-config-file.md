@@ -5,6 +5,7 @@ categories:
 tags:
   - pytest
 toc: true
+order: 6
 ---
 # pytest配置文件全面解析
 

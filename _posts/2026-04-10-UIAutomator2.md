@@ -8,7 +8,7 @@ tags:
   - 自动化测试
   - UIAutomator2
 toc: true
-order: 2
+order: 4
 ---
 # UIAutomator2 安卓自动化测试 系统学习大纲
 
