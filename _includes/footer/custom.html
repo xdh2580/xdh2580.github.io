@@ -1,4 +1,24 @@
 <!-- start custom footer snippets -->
 <!-- _includes/footer/custom.html -->
- 
+ <script>
+// 为所有details标签添加收起按钮
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('details').forEach(details => {
+    if (!details.querySelector('.collapse-btn')) {
+      const button = document.createElement('button');
+      button.className = 'collapse-btn';
+      button.textContent = '收起内容';
+      button.type = 'button';
+      
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        details.open = false;
+        details.scrollIntoView({ block: 'center' }); // 瞬间跳转
+      });
+      
+      details.appendChild(button);
+    }
+  });
+});
+</script>
 <!-- end custom footer snippets -->
