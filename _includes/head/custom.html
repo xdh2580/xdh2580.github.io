@@ -183,3 +183,22 @@ details .collapse-btn:hover {
   background-color: rgba(161, 161, 161, 0.8);
 }
 </style>
+
+<style>
+/* 在 _includes/head/custom.html 中 */
+#fluid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998 !important; /* 提高优先级 */
+  pointer-events: none;
+  background: transparent !important; /* 确保透明 */
+}
+
+/* 如果页面有更高的z-index元素，可能需要降低它们的层级 */
+body *:not(#fluid-canvas) {
+  z-index: auto !important; /* 重置其他元素的z-index */
+}
+</style>

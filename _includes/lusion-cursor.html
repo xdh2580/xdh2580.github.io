@@ -1,0 +1,44 @@
+<canvas id="fluid-canvas"></canvas>
+<script src="{{ '/assets/js/fluid-cursor.js' | relative_url }}"></script>
+<script>
+// 确保页面完全加载后再初始化
+window.addEventListener('load', function() {
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    return;
+  }
+  
+  const canvas = document.getElementById('fluid-canvas');
+  if (!canvas) {
+    console.error('Canvas元素未找到');
+    return;
+  }
+  
+const FLUID_CONFIG = {
+  // 加快消散
+  densityDissipation: 0.92,      // 从0.976降低
+  velocityDissipation: 0.94,     // 从0.97降低
+  dissipationSpeedBoost: 0.08,   // 从0.048提高
+  
+  // 其他参数保持不变
+  speedSlow: 1.5,
+  speedFast: 40,
+  splatIntensity: 0.42,
+  splatForce: 700,
+  splatRadius: 0.0022,
+  smokeSpread: 0.0082,
+  smokeInnerHole: 0.38,
+  smokePuffsMax: 15,
+  speedMinFactor: 0.18,
+  curl: 72,
+  dyeResolution: 1024,
+};
+  
+  try {
+    console.log('初始化FluidCursor...');
+    new FluidCursor(canvas, FLUID_CONFIG);
+    console.log('FluidCursor初始化成功');
+  } catch (error) {
+    console.error('FluidCursor初始化失败:', error);
+  }
+});
+</script>
