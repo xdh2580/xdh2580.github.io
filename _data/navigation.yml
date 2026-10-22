@@ -1,12 +1,9 @@
 # main links
+# title 填 ui-text 的键名（如 nav_home），随 _config.yml 的 locale 自动切换中英文
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: nav_home
+    url: /
+  - title: nav_categories
+    url: /categories/
+  - title: nav_tags
+    url: /tags/
