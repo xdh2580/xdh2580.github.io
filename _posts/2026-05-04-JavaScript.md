@@ -1,9 +1,10 @@
 ---
 title: "JavaScript相关"
 categories:
-  - JavaScript
+  - 前端
 tags:
   - JavaScript
+  - 前端
 toc: true
 order: 2
 ---

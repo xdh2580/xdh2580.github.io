@@ -1,9 +1,10 @@
 ---
 title: "Playwright相关"
 categories:
-  - Playwright
+  - Web自动化
 tags:
   - Playwright
+  - Web自动化
 toc: true
 order: 3
 ---

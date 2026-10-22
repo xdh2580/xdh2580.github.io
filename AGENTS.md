@@ -9,7 +9,7 @@
 - **托管方式**：GitHub Pages（用户页），`main` 分支直接发布
 - **定位**：面向**测试工程师 / 开发初学者**的中文技术学习笔记站
 - **博客作者**：xdh2580（测试工程师，全栈向学习路线：测试基础 → 接口/自动化 → 前端 → 容器/运维）
-- **内容现状**：`_posts/` 下已有 30+ 篇系统性学习文章，覆盖 Docker、Nginx、Java、Python、前端（HTML/CSS/JS/Vue）、测试理论、接口测试（Postman/Jmeter）、自动化（Selenium/Playwright/UIAutomator2）、数据库（SQL）、网络（HTTP/MQTT/计算机网络）、Jenkins、算法等。
+- **内容现状**：`_posts/` 下已有 40 篇系统性学习文章，覆盖 Docker、Nginx、Redis、Java、Python、前端（HTML/CSS/JS/Vue）、测试理论、接口测试（Postman/HTTP/requests/抓包）、自动化（Selenium/Playwright/UIAutomator2/Monkey）、单元测试（unittest/pytest）、数据库（SQL/MySQL）、网络（HTTP/MQTT/计算机网络）、运维（Linux/Jenkins/Docker/Nginx）、算法等。
 
 ## 二、技术栈与本地运行
 
@@ -54,7 +54,7 @@ order: 3
 ```
 
 - `title`：一律用双引号包裹，格式为「主题相关」，如 `"Docker相关"`、`"Java相关"`
-- `categories` / `tags`：列表形式，与文章内容强相关
+- `categories` / `tags`：分类填能力域大类（每篇 1 个），标签填具体技术点（可多个），见 4.4
 - `toc: true`：默认开启目录
 - `order`：**手动排序字段**（站点在分页基础上支持对 post 手动排序），新文章按插入位置填合适的值，避免与现有文章冲突
 
@@ -72,6 +72,14 @@ order: 3
 1. 在 `_posts/` 下按 `YYYY-MM-DD-主题.md` 命名创建
 2. 写完按下方【提交规范】commit
 3. push 到 `main` 后 GitHub Pages 自动部署（无需手动构建）
+
+### 4.4 分类与标签规范
+
+- **分类（categories）= 能力域大类**，每篇填 1 个，优先复用已有分类：
+  `测试理论`、`接口测试`、`性能测试`、`Web自动化`、`App自动化`、`单元测试框架`、`编程语言`、`前端`、`后端`、`计算机网络`、`数据库`、`运维部署`、`算法`、`站点说明`
+  现有分类都不贴切时可以新增，保持同样粒度即可，顺手更新本节清单。
+- 分类名会进文章 URL（`permalink: /:categories/:title/`），**重命名会导致旧链接失效**，尽量别改已有分类名。
+- **标签（tags）= 具体技术点**，可填多个，用于交叉检索，不进 URL。专有名词统一官方写法与大小写（`Python`、`Java`、`Docker`、`SQL`、`MySQL`、`JMeter`、`pytest`），不要 `Python`/`python` 混用（会让标签页出现重复分组）。
 
 ## 五、站点已有的自定义功能（改动前务必先了解）
 

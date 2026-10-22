@@ -1,12 +1,11 @@
 ---
 title: "UIAutomator2 安卓自动化测试"
 categories:
-  - APP测试
-  - UIAutomator2
+  - App自动化
 tags:
-  - APP测试
-  - 自动化测试
   - UIAutomator2
+  - APP自动化
+  - Android
 toc: true
 order: 4
 ---

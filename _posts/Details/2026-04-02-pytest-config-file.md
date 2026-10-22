@@ -1,9 +1,10 @@
 ---
 title: "进阶-pytest配置文件"
 categories:
-  - pytest
+  - 单元测试框架
 tags:
   - pytest
+  - 配置管理
 toc: true
 order: 6
 ---
