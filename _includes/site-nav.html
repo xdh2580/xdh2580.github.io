@@ -5,15 +5,12 @@
   - 必须在 main.min.js（jQuery）之后引入，见 _layouts/default.html
 {% endcomment %}
 <style>
-  /* 锚点跳转平滑 + 给 sticky 顶栏留出空间（替代 main.min.js 里 SmoothScroll 的效果） */
+  /* 只给 sticky 顶栏留出锚点偏移。
+     注意：不要在这里加 scroll-behavior: smooth —— 主题的 SmoothScroll 插件和
+     site-nav.js 的逐帧动画都靠 window.scrollTo 逐步推进，一旦全局改为 smooth，
+     每帧都会被当成一次新的平滑滚动而互相打断，表现为"点目录只滚一点点就停"。 */
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 4.5em;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
   }
 </style>
 <script src="{{ '/assets/js/swup.min.js' | relative_url }}"></script>
