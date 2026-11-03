@@ -1,0 +1,18 @@
+# 背景音乐播放列表
+# 字段说明：
+#   name   - 歌曲名
+#   artist - 歌手
+#   url    - 音频文件路径（放在 assets/music/ 下）
+#   cover  - 封面图路径
+#   lrc    - 可选，歌词文件路径，没有就删掉这一行
+# 增删歌曲只改本文件，不用动模板。
+
+- name: "Cycle (Intro)"
+  artist: "KISNOU"
+  url: /assets/music/KISNOU - Cycle (Intro).mp3
+  cover: /assets/music/cover1.jpg
+
+- name: "Your Song"
+  artist: "Unknown"
+  url: /assets/music/your-song-1.mp3
+  cover: /assets/music/cover1.jpg

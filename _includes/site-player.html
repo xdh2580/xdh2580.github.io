@@ -1,0 +1,68 @@
+{% comment %}
+  站点背景音乐播放器（APlayer）
+  - 播放列表来自 _data/music.yml
+  - 关键：本 include 必须挂在 .initial-content 之外（见 _layouts/default.html），
+    这样后续接入软导航替换正文时，<audio> 不会被卸载，音乐才能跨页面连续播放。
+  - 重复初始化保护：window.__sitePlayer 存在则直接返回。
+{% endcomment %}
+<link rel="stylesheet" href="{{ '/assets/css/APlayer.min.css' | relative_url }}">
+
+<div id="site-player" aria-label="背景音乐播放器"></div>
+
+<style>
+  /* 抵消 _includes/head/custom.html 中
+     body *:not(#fluid-canvas){ z-index: auto !important; }
+     对悬浮播放器的层级重置（同特异性、后加载，故可覆盖） */
+  body #site-player.aplayer-fixed,
+  body #site-player .aplayer-body,
+  body #site-player .aplayer-list,
+  body #site-player .aplayer-lrc {
+    z-index: 9997 !important;
+  }
+
+  /* 播放器固定在左下角，给页面底部留出不被遮挡的空间 */
+  body {
+    padding-bottom: 78px;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding-bottom: 74px;
+    }
+  }
+</style>
+
+<script>
+  window.__siteMusic = [
+    {% for m in site.data.music %}
+    {
+      "name": {{ m.name | jsonify }},
+      "artist": {{ m.artist | jsonify }},
+      "url": "{{ m.url | relative_url | uri_escape }}",
+      "cover": "{{ m.cover | relative_url | uri_escape }}"{% if m.lrc %},
+      "lrc": "{{ m.lrc | relative_url | uri_escape }}"{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script src="{{ '/assets/js/APlayer.min.js' | relative_url }}"></script>
+<script>
+  (function () {
+    if (window.__sitePlayer) return;
+    if (typeof APlayer === "undefined" || !window.__siteMusic.length) return;
+
+    window.__sitePlayer = new APlayer({
+      container: document.getElementById("site-player"),
+      fixed: true,
+      autoplay: false,
+      theme: "#2f7d8c",
+      loop: "all",
+      order: "list",
+      preload: "none",
+      listFolded: true,
+      listMaxHeight: "220px",
+      storageName: "xdh2580-player",
+      audio: window.__siteMusic
+    });
+  })();
+</script>
