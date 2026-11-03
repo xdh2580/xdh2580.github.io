@@ -125,6 +125,15 @@
   }
 
   function initBackToTop() {
+    /* 按钮由 single.html 渲染在 .page__inner-wrap 内，其祖先的入场动画(intro)
+       会创建层叠上下文/包含块：滚到页底时按钮会被页脚盖住、点不到。
+       统一挂到 body 直接子级；非文章页（软导航进入）则移除残留按钮。 */
+    document.querySelectorAll("body > #backToTop").forEach(function (el) {
+      el.remove();
+    });
+    var host = document.querySelector(".initial-content #backToTop");
+    if (!host) return;
+    document.body.appendChild(host);
     if (!window.__bttScrollBound) {
       window.__bttScrollBound = true;
       window.addEventListener(
@@ -137,13 +146,117 @@
         { passive: true }
       );
     }
-    var b = document.getElementById("backToTop");
-    if (b && !b.__bound) {
-      b.__bound = true;
-      b.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!host.__bound) {
+      host.__bound = true;
+      host.addEventListener("click", function () {
+        animateScrollTo(0);
       });
     }
+  }
+
+  /* 目录条目点击：接管主题 SmoothScroll 的默认处理。
+     它的动画同样会被 gumshoe 的 scrollIntoView 打断（长目录点条目只滚一小段），
+     这里统一走 animateScrollTo；用 getElementById 定位，也顺带绕开旧版插件对
+     以数字开头的 id（如 141-jvm内存结构）在 querySelector 里的隐患。 */
+  var TOC_OFFSET = 20;
+
+  function initTocClick() {
+    var nav = document.querySelector("nav.toc");
+    if (!nav || nav.dataset.clickBound === "1") return;
+    nav.dataset.clickBound = "1";
+    nav.addEventListener(
+      "click",
+      function (e) {
+        var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (!a || !nav.contains(a)) return;
+        var raw = a.getAttribute("href").slice(1);
+        var el = raw ? document.getElementById(decodeURIComponent(raw)) : null;
+        if (!el) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (history.pushState) {
+          history.pushState(null, "", "#" + raw);
+        }
+        animateScrollTo(el.getBoundingClientRect().top + window.pageYOffset - TOC_OFFSET);
+      },
+      true
+    );
+  }
+
+  /* 逐帧动画滚动到目标位置（返回顶部、目录跳转共用）。
+     两个关键点：
+     1. 不用原生 scrollTo({behavior:"smooth"})：主题的「目录跟随正文滚动」
+        (gumshoeActivate → target.scrollIntoView) 会取消浏览器平滑滚动。
+     2. 动画期间把 html 的 scroll-behavior 临时改成 auto：否则每次 scrollTo
+        都被当成新的平滑滚动，逐帧互相打断，表现为"只滚一点点就停"。 */
+  var scrollAnimId = 0;
+
+  function animateScrollTo(targetY) {
+    targetY = Math.max(0, Math.round(targetY));
+    var start = window.pageYOffset;
+    var dist = targetY - start;
+    var root = document.documentElement;
+    var prevBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    if (Math.abs(dist) < 2) {
+      window.scrollTo(0, targetY);
+      root.style.scrollBehavior = prevBehavior;
+      return;
+    }
+    var duration = Math.min(600, 200 + Math.abs(dist) * 0.06);
+    var myId = ++scrollAnimId;
+    var t0 = null;
+    var cancelled = false;
+    function cancel() {
+      cancelled = true;
+    }
+    window.addEventListener("wheel", cancel, { passive: true });
+    window.addEventListener("touchstart", cancel, { passive: true });
+    function cleanup() {
+      window.removeEventListener("wheel", cancel);
+      window.removeEventListener("touchstart", cancel);
+      root.style.scrollBehavior = prevBehavior;
+    }
+    function step(ts) {
+      if (cancelled || myId !== scrollAnimId) return cleanup();
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      window.scrollTo(0, Math.round(start + dist * eased));
+      if (p < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, targetY);
+        cleanup();
+      }
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  /* 拦下主题的「目录跟随正文滚动」(gumshoeActivate → target.scrollIntoView)。
+     吸顶(sticky)目录里的元素被 scrollIntoView 时，Chrome 会按它在文档流中的位置
+     计算，把整页拉回文章开头 —— 表现为点目录条目只滚一下又弹回、返回顶部停在半路。
+     这里在 capture 阶段掐断冒泡，改为只调整目录容器自身的 scrollTop，主文档不受影响。 */
+  function initTocSync() {
+    if (window.__tocSyncBound) return;
+    window.__tocSyncBound = true;
+    document.addEventListener(
+      "gumshoeActivate",
+      function (e) {
+        e.stopPropagation();
+        var li = e.target;
+        var menu = document.querySelector("nav.toc .toc__menu");
+        if (!li || !menu) return;
+        var lr = li.getBoundingClientRect();
+        var mr = menu.getBoundingClientRect();
+        if (lr.top < mr.top) {
+          menu.scrollTop += lr.top - mr.top - 8;
+        } else if (lr.bottom > mr.bottom) {
+          menu.scrollTop += lr.bottom - mr.bottom + 8;
+        }
+      },
+      true
+    );
   }
 
   /* 文章目录高亮（Gumshoe scrollspy）。
@@ -156,6 +269,7 @@
     var nav = document.querySelector("nav.toc");
     if (!nav || nav.dataset.spyBound === "1") return;
     nav.dataset.spyBound = "1";
+    initTocSync();
     new Gumshoe("nav.toc a", {
       navClass: "active",
       contentClass: "active",
@@ -185,6 +299,7 @@
   function initContent() {
     initDetailButtons();
     initBackToTop();
+    initTocClick();
     addHeadingAnchors();
     addCopyButtons();
     initImagePopups();
@@ -250,6 +365,7 @@
 
   onReady(function () {
     initContent();
+    initTocSync();
     initSwup();
   });
 })();
