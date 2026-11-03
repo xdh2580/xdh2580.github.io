@@ -5,7 +5,7 @@
       footer、播放器、光标 canvas）保持不动 → 音乐跨页面连续播放。
    2. main.min.js 里的初始化只在首次加载执行一次，软导航后新内容拿不到绑定，
       这里把「内容区相关」的那些补上：标题锚点、代码复制按钮、图片灯箱、
-      details 收起按钮、返回顶部。
+      details 收起按钮、返回顶部、文章目录高亮；另外收起软导航前残留的搜索面板。
    3. masthead 不被替换，所以搜索、下拉菜单等原有绑定天然有效，无需处理。
    全局暴露 window.__siteInitContent()，便于后续扩展。
    ========================================================================== */
@@ -146,6 +146,42 @@
     }
   }
 
+  /* 文章目录高亮（Gumshoe scrollspy）。
+     主题的 _main.js 只在首次加载时绑定 nav.toc，而 TOC 在 .initial-content 内、
+     软导航后会被替换，新 nav 无人监听 → 高亮失效。此处为替换后的新 nav 重新绑定。
+     注：该版 Gumshoe 无 destroy，旧实例的监听仍存在，但它持有的是已脱离文档的
+     旧节点，不影响新内容；用 dataset 标记避免同一 nav 重复绑定。 */
+  function initTocSpy() {
+    if (typeof Gumshoe === "undefined") return;
+    var nav = document.querySelector("nav.toc");
+    if (!nav || nav.dataset.spyBound === "1") return;
+    nav.dataset.spyBound = "1";
+    new Gumshoe("nav.toc a", {
+      navClass: "active",
+      contentClass: "active",
+      nested: false,
+      nestedClass: "active",
+      offset: 20,
+      reflow: true,
+      events: true,
+    });
+  }
+
+  /* 软导航后收起搜索面板。
+     .search-content 在 .initial-content 之外、不会被替换，而正文的 is--hidden
+     会随容器替换消失 → 点搜索结果后面板仍盖在正文上，需手动再关一次。 */
+  function closeSearchPanel() {
+    var sc = document.querySelector(".search-content");
+    if (!sc || !sc.classList.contains("is--visible")) return;
+    sc.classList.remove("is--visible");
+    var content = document.querySelector(".initial-content");
+    if (content) content.classList.remove("is--hidden");
+    var results = document.getElementById("results");
+    if (results) results.innerHTML = "";
+    var input = document.querySelector("input#search");
+    if (input) input.value = "";
+  }
+
   function initContent() {
     initDetailButtons();
     initBackToTop();
@@ -154,7 +190,6 @@
     initImagePopups();
   }
   window.__siteInitContent = initContent;
-
   /* ---------------- 软导航 ---------------- */
 
   function instantScrollTo(y) {
@@ -188,6 +223,8 @@
 
     on("page:view", function () {
       initContent();
+      initTocSpy();
+      closeSearchPanel();
       requestAnimationFrame(function () {
         var hash = location.hash;
         if (hash && hash.length > 1) {

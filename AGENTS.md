@@ -93,7 +93,7 @@ order: 3
 - **首页中间区域加宽**样式调整
 - **分页 + post 手动排序**（`order` 字段）
 - 站内**背景音乐播放器**（`_includes/site-player.html`，播放列表在 `_data/music.yml`）：APlayer fixed 悬浮左下角，**默认迷你圆形态**，点右侧箭头展开成完整条。两个勿破坏点：①`<audio>` 特意挂到 body 末尾、`.initial-content` 之外——这是跨页连续播放的根本；②播放器占位写在 `.page__footer` 的 `padding-bottom`，**不要改回 `body` padding**——body 与页脚背景不同色，会在页面底部露出空块
-- **软导航**（Swup，`assets/js/site-nav.js` + `_includes/site-nav.html`）：接管站内链接，只替换 `.initial-content`，实现页面切换不刷新、音乐连续播放。返回顶部、details 收起按钮、标题锚点、图片灯箱的初始化已从 head/footer 内联脚本**迁移到 site-nav.js**，修改这些功能请改 site-nav.js，不要恢复内联 DOMContentLoaded 脚本（软导航后新内容会丢失绑定）
+- **软导航**（Swup，`assets/js/site-nav.js` + `_includes/site-nav.html`）：接管站内链接，只替换 `.initial-content`，实现页面切换不刷新、音乐连续播放。返回顶部、details 收起按钮、标题锚点、图片灯箱、**文章目录高亮（Gumshoe）**、**搜索面板收起**的初始化都在 `site-nav.js` 的 `page:view` 里——修改这些功能请改 `site-nav.js`，不要恢复内联 DOMContentLoaded 脚本（软导航后新内容会丢失绑定）
 
 ## 六、Agent 工作守则
 
