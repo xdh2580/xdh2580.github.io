@@ -1,0 +1,20 @@
+{% comment %}
+  站点软导航（Swup）
+  - 只替换 .initial-content，其余 DOM 保持不动，播放器因此不会中断
+  - 配套脚本：assets/js/site-nav.js（内容区初始化借用 main.min.js 已有的初始化补齐）
+  - 必须在 main.min.js（jQuery）之后引入，见 _layouts/default.html
+{% endcomment %}
+<style>
+  /* 锚点跳转平滑 + 给 sticky 顶栏留出空间（替代 main.min.js 里 SmoothScroll 的效果） */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5em;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+<script src="{{ '/assets/js/swup.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/site-nav.js' | relative_url }}"></script>

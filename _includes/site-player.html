@@ -20,13 +20,15 @@
     z-index: 9997 !important;
   }
 
-  /* 播放器固定在左下角，给页面底部留出不被遮挡的空间 */
-  body {
+  /* 播放器悬浮于视口左下角（高 66px，迷你/展开态同高）。
+     预留空间写在页脚自身内部：footer 背景色一致，视觉上是页脚自然加高，
+     不会像 body padding 那样在页面末尾产生突兀的异色空块 */
+  .page__footer {
     padding-bottom: 78px;
   }
 
   @media (max-width: 480px) {
-    body {
+    .page__footer {
       padding-bottom: 74px;
     }
   }
@@ -54,6 +56,8 @@
     window.__sitePlayer = new APlayer({
       container: document.getElementById("site-player"),
       fixed: true,
+      // 初始为迷你圆形按钮（未展开），点击右侧小箭头可展开成完整播放条
+      mini: true,
       autoplay: false,
       theme: "#2f7d8c",
       loop: "all",
@@ -64,5 +68,17 @@
       storageName: "xdh2580-player",
       audio: window.__siteMusic
     });
+
+    // 初始即迷你态（圆形封面 + 右侧展开箭头），此处不再强制退出 aplayer-narrow。
+
+    // APlayer 用 new Audio() 生成的 <audio> 是游离节点，不在 DOM 中。
+    // 不插入 DOM 会导致 iOS 锁屏/后台播放与 Media Session 失效。
+    // 这里挂到 body 末尾（.initial-content 之外），软导航替换正文时不会被卸载。
+    var audioEl = window.__sitePlayer.audio;
+    if (audioEl && !document.body.contains(audioEl)) {
+      audioEl.setAttribute("playsinline", "");
+      audioEl.classList.add("site-audio");
+      document.body.appendChild(audioEl);
+    }
   })();
 </script>

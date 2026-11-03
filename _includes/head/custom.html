@@ -118,33 +118,7 @@ details:hover {
 }
 </style>
 
-<!-- 添加返回顶部的按钮实现 -->
-<script>
-// 当DOM加载完成后执行
-document.addEventListener('DOMContentLoaded', function() {
-  const backToTopButton = document.getElementById('backToTop');
-  const scrollThreshold = 300;
-  
-  if (backToTopButton) {
-    // 监听滚动事件
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > scrollThreshold) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
-      }
-    });
-    
-    // 点击按钮平滑滚动到顶部
-    backToTopButton.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-});
-</script>
+<!-- 返回顶部按钮的绑定已统一到 assets/js/site-nav.js（支持软导航后重新初始化） -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
@@ -161,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Windows 磁贴配置 -->
 <!-- <meta name="msapplication-TileColor" content="#ffffff"> -->
 <!-- <meta name="msapplication-TileImage" content="{{ "/assets/images/mstile-150x150.png" | relative_url }}"> -->
-<!-- <script src="{{ '/assets/js/APlayer.min.js' | relative_url }}"></script> -->
 <!-- end custom head snippets -->
 
 <style>
