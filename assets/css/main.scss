@@ -91,3 +91,76 @@ search: false
     font-size: 18px;
   }
 }
+
+/* ==========================================================================
+   首页排序切换入口 + 按时间浏览页（/timeline/）
+   ========================================================================== */
+
+/* 首页「全部文章」标题行右侧的切换链接 */
+.archive__sort-link {
+  float: right;
+  font-size: 0.75em;
+  font-weight: 400;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* 时间线页顶部的返回链接 */
+.archive__lead {
+  margin: 0 0 1.5em;
+  font-size: 0.85em;
+}
+
+/* 年份标题里的小号篇数 */
+.timeline-count {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: $muted-text-color;
+}
+
+/* 时间线列表 */
+.timeline-list {
+  margin: 0 0 1.5em;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 0.85em;
+  align-items: baseline;
+  padding: 0.4em 0;
+  border-bottom: 1px dashed $border-color;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.timeline-date {
+  flex: 0 0 3.2em;
+  font-size: 0.8em;
+  font-variant-numeric: tabular-nums;
+  color: $muted-text-color;
+}
+
+.timeline-title {
+  flex: 1;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 600px) {
+  .archive__sort-link {
+    float: none;
+    display: block;
+    margin-top: 0.35em;
+  }
+}

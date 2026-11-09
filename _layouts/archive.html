@@ -15,12 +15,19 @@ layout: default
   {% endunless %}
 {% endif %}
 
+{% comment %} 页面标题支持走 ui-text 键名（page.title_key），以便随 site.locale 切换中英文；
+      未设置 title_key 的页面仍直接用 page.title，行为不变 {% endcomment %}
+{% assign page_title = page.title %}
+{% if page.title_key %}
+  {% assign page_title = site.data.ui-text[locale][page.title_key] | default: page.title %}
+{% endif %}
+
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
+      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page_title }}</h1>
     {% endunless %}
     {{ content }}
   </div>

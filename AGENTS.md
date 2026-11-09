@@ -82,6 +82,13 @@ order: 3
 - 分类名会进文章 URL（`permalink: /:categories/:title/`），**重命名会导致旧链接失效**，尽量别改已有分类名。
 - **标签（tags）= 具体技术点**，可填多个，用于交叉检索，不进 URL。专有名词统一官方写法与大小写（`Python`、`Java`、`Docker`、`SQL`、`MySQL`、`JMeter`、`pytest`），不要 `Python`/`python` 混用（会让标签页出现重复分组）。
 
+### 4.5 界面文案必须双语（重要）
+
+- 站点任何**界面文案**（标题、按钮、链接、提示语）都要走 `_data/ui-text.yml` 的键名，在 `en` 与 `zh` 各写一份（`zh` 是简体 anchor，`zh-CN`/`zh-SG` 自动继承；用到繁体时再补 `zh-TW`），**禁止在模板里写死单一语言**。
+- 模板取值写法：`{{ site.data.ui-text[locale].键名 | default: "中文兜底" }}`，`locale` 取自 `page.locale | default: layout.locale | default: site.locale`。
+- 页面标题若需随语言切换，在 front matter 写 `title_key: 键名`（`_layouts/archive.html` 已支持），`title` 仍保留中文供 SEO 与兜底。
+- 新键命名用小写加下划线（如 `all_posts`、`browse_by_date`），与既有键保持一致。
+
 ## 五、站点已有的自定义功能（改动前务必先了解）
 
 以下功能是历次迭代加入的，**修改或删除前请先告知用户并确认**，避免破坏现有体验：
@@ -94,6 +101,7 @@ order: 3
 - **分页 + post 手动排序**（`order` 字段）
 - 站内**背景音乐播放器**（`_includes/site-player.html`，播放列表在 `_data/music.yml`）：APlayer fixed 悬浮左下角，**默认迷你圆形态**，点右侧箭头展开成完整条。两个勿破坏点：①`<audio>` 特意挂到 body 末尾、`.initial-content` 之外——这是跨页连续播放的根本；②播放器占位写在 `.page__footer` 的 `padding-bottom`，**不要改回 `body` padding**——body 与页脚背景不同色，会在页面底部露出空块
 - **软导航**（Swup，`assets/js/site-nav.js` + `_includes/site-nav.html`）：接管站内链接，只替换 `.initial-content`，实现页面切换不刷新、音乐连续播放。返回顶部、details 收起按钮、标题锚点、图片灯箱、**文章目录高亮（Gumshoe）**、**搜索面板收起**的初始化都在 `site-nav.js` 的 `page:view` 里——修改这些功能请改 `site-nav.js`，不要恢复内联 DOMContentLoaded 脚本（软导航后新内容会丢失绑定）
+- **文章列表排序**：`_layouts/home.html` 里自定义——有 `order` 的按 order 升序在前，无 order 的按日期倒序垫后；首页副标题用 `all_posts` 键，标题行右侧链接进 `/timeline/`（`_pages/timeline.md`，按发布时间倒序、一页列全，标题用 `recent_posts` 键）。要调整排序请改 `home.html`，不要动 `jekyll-paginate` 的分页机制
 
 ## 六、Agent 工作守则
 

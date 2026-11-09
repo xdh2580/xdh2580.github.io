@@ -6,7 +6,7 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[locale].recent_posts | default: "Recent Posts" }}</h3>
+<h3 class="archive__subtitle">{{ site.data.ui-text[locale].all_posts | default: "全部文章" }}<a class="archive__sort-link" href="{{ '/timeline/' | relative_url }}">{{ site.data.ui-text[locale].browse_by_date | default: "按时间浏览" }} &rarr;</a></h3>
 
 {% comment %} 
   ================================
