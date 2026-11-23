@@ -164,3 +164,10 @@ search: false
     margin-top: 0.35em;
   }
 }
+
+/* 搜索无结果提示：与主题的 .results__found 保持同一层级 */
+.results__not-found {
+  margin-top: 0.5em;
+  font-size: $type-size-6;
+  color: $muted-text-color;
+}

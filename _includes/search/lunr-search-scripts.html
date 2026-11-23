@@ -1,11 +1,7 @@
-{% assign locale = include.locale | default: site.locale %}
-{% assign lang = locale | slice: 0,2 | default: "en" %}
-{% case lang %}
-{% when "gr" %}
-  {% assign lang = "gr" %}
-{% else %}
-  {% assign lang = "en" %}
-{% endcase %}
+{%- comment -%}
+  统一加载搜索脚本：lunr-en.js 已内置 CJK 二元切分，中英文共用一套，
+  不再按界面语言在 en / gr 之间分叉（切词只与文本有关，与界面语言无关）。
+{%- endcomment -%}
 <script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/lunr/lunr-store.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/lunr/lunr-' | append: lang | append: '.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-en.js' | relative_url }}"></script>
